@@ -18,11 +18,11 @@ git clone https://github.com/viveksatasiya/vagrant-prometheus-grafana.git
 cd vagrant-prometheus-grafana/
 ```
 
-In the Vagrantfile modify the following proxy settings for HRE's network
+In the Vagrantfile modify the following proxy settings
 
 ```
-config.proxy.http     = "http://<user>:<password>@my0-proxy:8080"
-config.proxy.https    = "http://<user>:<password>@my0-proxy:8080"
+config.proxy.http     = "http://<user>:<password>@<url>:<port>"
+config.proxy.https    = "http://<user>:<password>@<url>:<port>"
 config.proxy.no_proxy = "localhost,127.0.0.1"
 ```
 
@@ -53,3 +53,6 @@ vagrant ssh
 Default username & password for grafana is **admin**
 
 Currently prometheus server is pulling metrics from node-exporter which is installed locally into the virtual machine so you can get all the metrics of that virtual machine. If you want to get metrics from other os, you need to change targets which is written into provision.sh file.
+
+To test embedding iframes:
+Set anonymous access to true and allow embedding to true in /etc/grafana/grafana.ini
