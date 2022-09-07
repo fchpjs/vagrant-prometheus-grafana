@@ -27,6 +27,10 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--nictype1", "virtio"]
   end
+  
+  config.proxy.http     = "http://<user>:<password>@my0-proxy:8080"
+  config.proxy.https    = "http://<user>:<password>@my0-proxy:8080"
+  config.proxy.no_proxy = "localhost,127.0.0.1"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
