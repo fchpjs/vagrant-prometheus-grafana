@@ -16,8 +16,22 @@ After installing vagrant, just clone this github repo.
 ```
 git clone https://github.com/viveksatasiya/vagrant-prometheus-grafana.git
 cd vagrant-prometheus-grafana/
+```
+
+In the Vagrantfile modify the following proxy settings for HRE's network
+
+```
+config.proxy.http     = "http://<user>:<password>@my0-proxy:8080"
+config.proxy.https    = "http://<user>:<password>@my0-proxy:8080"
+config.proxy.no_proxy = "localhost,127.0.0.1"
+```
+
+After configuring proxy settings run vagrant up to start the server
+
+```
 vagrant up
 ```
+
 
 vagrant up command will download precise64 box which is ubuntu machine and run provision.sh file to install and configure prometheus & grafana into the virtual machine. 
 
